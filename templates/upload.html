@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+{% block body %}
+    <div class = "container" id = "myrow">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" id = "uploadimg" href="#upload-image">Upload Image</a>
+            </li>
+          </ul>
+
+          <!--Tab pane-->
+          <div class = "tab-content">
+                <div class = "tab-pane-active" id = "upload-image" role="tabpanel" aria-labelledby="uploadimg">
+                    <div class = "row">
+                        <div class = "column">
+                            <form action="#" method = "POST" enctype="multipart/form-data">
+                                <!--file input-->
+                                <p>
+                                    <input type="file" name = "image_name" class = "btn" style="background-color: #2471A3; color :azure;"  required>
+                                </p>
+                                <p>
+                                    <input type="submit" value="submit" style="background-color: #2471A3; color :azure;" class="btn">
+                                </p>
+                                <p align = "center">
+                                    <strong>Instructions:</strong><br>
+                                    On upload the file with extension ".jpg", ".jpeg", ".png"
+                                    For other image extension you will <strong>redirect</strong> to error 404 page
+                                </p>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+          </div>
+    </div>
+    {% if fileupload %}
+    <div class = "container" id = "myrow_result">
+        <div class = "row">
+            <div class = "col col-8">
+                <table>
+                    <tr>
+                        <th>Label</th>
+                        <th>Confidence Score</th>
+                    </tr>            
+                    {% for name,score in data.items()  %}
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ score }}</td>
+                    </tr>
+                    
+                    {% endfor %}
+                </table>
+            </div>
+            <div class = "col col-4">
+                <img src = "/static/upload/{{ image_filename }}" alt = "uploaded image" width = "300" height = "{{ height }}">
+
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if extension %}
+        <div class = "container" id = "myrow_results">
+            <div class = "row">
+                <p>Invalid extension of the image</p>
+                <p>Make sure the image extension if of following ".png", ".jpg", ".jpeg"</p>
+            </div>
+        </div>
+
+    {% endif %}
+
+
+<style>
+    #myrow{
+    background-color: #EBEDEF;
+    }
+
+    #myrow_result{
+        background-color: #EBEDEF;
+        padding: 5%;
+        align-content: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+
+</style>
+{% endblock %}

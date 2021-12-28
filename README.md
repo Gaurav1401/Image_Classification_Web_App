@@ -24,4 +24,4 @@ To classify an uploaded image into the following categories:
  - Tiger
 
 ## Output
-[Video](video/Flask_app.mp4)
+[Video](https://user-images.githubusercontent.com/62044644/147596698-ab3407dd-b5a6-49da-9bb4-3c25661d815e.mp4)

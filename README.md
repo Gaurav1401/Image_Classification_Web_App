@@ -24,5 +24,4 @@ To classify an uploaded image into the following categories:
  - Tiger
 
 ## Output
-Here is the glimpse of the working of the final model<br>
-[GIF animation](Gif/Flask_App.gif)
+[Video](video/Flask_app.mp4)
